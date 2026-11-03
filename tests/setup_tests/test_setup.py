@@ -4,18 +4,18 @@ import sys
 import unittest
 
 class TestSetup(unittest.TestCase):
-    def test_numpy_import(self):
+    def test_numpy_import(self) -> None:
         numpy_spec = importlib.util.find_spec("numpy")
         if numpy_spec is None:
             self.fail("numpy is not installed")
 
-    def test_package_import(self):
+    def test_package_import(self) -> None:
         pkg_spec = importlib.util.find_spec("ids_eval")
         if pkg_spec is None:
             self.fail("ids_eval package is not importable")
         import ids_eval  # noqa: F401
 
-    def test_cli_version(self):
+    def test_cli_version(self) -> None:
         # Use module invocation to avoid relying on entry point installation in the environment
         proc = subprocess.run([sys.executable, "-m", "ids_eval.main", "version"], capture_output=True, text=True)
         self.assertEqual(proc.returncode, 0, msg=proc.stderr)

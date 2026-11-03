@@ -4,7 +4,7 @@ from plugin_static_metric.robustness_index_metric import RobustnessIndexMetric
 import unittest
 
 class TestStaticMetrics(unittest.TestCase):
-    def test_pr_auc_average_precision(self):
+    def test_pr_auc_average_precision(self) -> None:
         metric = PrAucMetric()
         metric._static_metric_prepare()
         result = metric._static_metric_calculate(
@@ -14,7 +14,7 @@ class TestStaticMetrics(unittest.TestCase):
         assert result["test_pr_auc"] == 0.83333
 
 
-    def test_robustness_index_normalized_area(self):
+    def test_robustness_index_normalized_area(self) -> None:
         metric = RobustnessIndexMetric()
         result = metric._static_metric_calculate(
             {

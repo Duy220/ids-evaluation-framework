@@ -25,7 +25,7 @@ class TestFeatureSelection(unittest.TestCase):
         pd.DataFrame,
         pd.DataFrame,
         list[str],
-        str,
+        str
     ]:
         (images_train, labels_train), (images_test, labels_test) = mnist.load_data()
 
@@ -81,7 +81,7 @@ class TestFeatureSelection(unittest.TestCase):
             config_index=0,
         )
 
-        # Check output shape, labels, and that the selection metadata was recorded.
+        # Check output shape, labels, and that the selection metadata was recorded
         self.assertEqual(len(result), len(X_train) + len(X_test))
         self.assertIn(target_col, result.columns)
         self.assertTrue(result.index.is_unique)
